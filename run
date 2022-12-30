@@ -1,4 +1,4 @@
 #!/bin/bash
 
-python train.py
-python main.py
+python3 train.py
+python3 main.py
