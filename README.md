@@ -3,7 +3,7 @@
 ## Concept Development 動機發想
 
 <!-- Why does your team want to build this idea/project?  -->
-有些資料與物品具有非常高的價值，以防內鬼誕生之後沒有人能守護，因此做一個以rasberry-pi執行的門禁系統，以USB camera讀入影像辨識人臉，先以opencv進行訓練並註冊，如果是註冊過的就可以亮led燈表示通過，並透過telegram bot會傳送他的名子說他來了，若是沒有註冊過的則會使蜂鳴器叫並解透過telegram提醒說這是沒註冊的人，並且會顯示畫面裡的人的情緒、年齡、人種、性別。
+有些資料與物品具有非常高的價值，以防內鬼誕生之後沒有人能守護，因此做一個以rasberry-pi執行的門禁系統，以USB camera讀入影像辨識人臉，先以opencv進行訓練並註冊，如果是註冊過的就可以亮led燈表示通過，並透過telegram bot會傳送他的名子說他來了，若是沒有註冊過的則會使蜂鳴器叫並解透過telegram提醒說這是沒註冊的人，並且會顯示畫面裡的人的情緒、年齡。
 ## Implementation Resources 硬體設備
 
 <!-- e.g., How many Raspberry Pi? How much you spent on these resources? -->
