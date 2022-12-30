@@ -8,16 +8,18 @@
 
 <!-- e.g., How many Raspberry Pi? How much you spent on these resources? -->
 - 1塊Raspberry Pi Model 3B
+- 1台webcam
 - 1塊麵包版
 - 1個蜂鳴器
-- 杜邦線
+- 杜邦線至少4條
 - 1個LED
 - 1個電阻(防LED燒壞)
+
    
 ## Existing Library/Software 軟體架構
 
 <!-- Which libraries do you use while you implement the project -->
-- python3
+- python3.9.2
 - GPIO module(樹梅派內建就有)
 - python-telegram-bot(為了通知在遠端的使用者用telegram做interface)
 - opencv(影像辨識)
@@ -26,14 +28,16 @@
 ## Implementation Process
 
 <!-- What kind of problems you encounter, and how did you resolve the issue? -->
-因為樹梅派跑不太動深度學習的人臉辨識，因此使用了cv2取代做人臉辨識與偵測
+- 因為樹梅派跑不太動深度學習的人臉辨識，因此使用了cv2取代做人臉辨識與偵測，其實可以先sever端訓練好之後再把model丟到樹梅派裡就好
 
+- 直接`pip install tensorflow`會使樹梅派當機
+因此使用了`pip install tflite-runtime`下載tensorflow-lite
 ## Knowledge from Lecture
 
 <!-- What kind of knowledge did you use on this project? -->
 
 
-## Installation
+## Installation 預先下載
 
 <!-- How do the user install with your project? -->
 
@@ -47,31 +51,58 @@ $ sudo apt install vim
 ```
 $ pip install opencv_python
 $ pip install opencv_contrib_python
-```
-- telegram bot 套件下載
-```
-$ git clone https://github.com/python-telegram-bot/python-telegram-bot
-$ cd python-telegram-bot
-$ python3 setup.py install
+$ pip install tflite-runtime
+$ pip install deepface
 ```
 
 - 並且去telegram找`@BotFather`申請一個機器人
 
-
-## Usage
-
+![](https://github.com/doudou030/Access_Control_System_with_pi/blob/main/img/creatbot.jpg?raw=true)
+- 下載人臉追蹤模型(要記好位置)
+```
+$ wget https://github.com/kipr/opencv/raw/master/data/haarcascades/haarcascade_frontalface_default.xml
+```
+## Usage 使用方法
 <!-- How to use your project -->
 
-## Job Assignment
+- GPIO接線
+![](https://github.com/doudou030/Access_Control_System_with_pi/blob/main/img/pin.jpg?raw=true)
+
+- 下載程式碼並增加使用權限
+```
+$ git clone https://github.com/doudou030/Access_Control_System_with_pi.git
+$ cd Access_Control_System_with_pi
+$ chmod +755 run
+```
+- 註冊自己的臉
+    - 先多自拍幾張存好並命名成{number}.jpeg 例: 1.jpeg、2.jpeg
+    - 並存在**自己知道位置**的資料夾
+```
+$ vim train.py
+```
+- 改成自己bot的token與chat id
+```
+$ vim main.py
+```
+- 執行
+```
+$ ./run
+```
+## Job Assignment 工作分配
 - 歐丞言
     - 寫github
     - 建立telegram bot
     - python programming
 - 郝健皓
-
+    - python debugging
+    - 醬油小老師
 - 陳奕宏
-
+    - 英文小達人
+    - 醬油顧問
 - 陳俊維
+    - telegram bot programming
+    - 醬油本人
+
 ## References
 
 - [Python Telegram Bot  gtihub](https://github.com/python-telegram-bot/python-telegram-bot)
@@ -79,3 +110,4 @@ $ python3 setup.py install
 - [GPIO教學 github](https://github.com/piepie-tw/gpio-game-console)
 - [Opencv辨識人臉教學](https://steam.oxxostudio.tw/category/python/ai/ai-face-recognizer.html)
 - [deepface情緒辨識](https://steam.oxxostudio.tw/category/python/ai/ai-emotion.html)
+- [電路模擬圖tinkercad](https://www.tinkercad.com/dashboard)
