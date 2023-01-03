@@ -79,6 +79,7 @@ $ pip install deepface
 <!-- How to use your project -->
 
 - GPIO接線
+
 ![](https://github.com/doudou030/Access_Control_System_with_pi/blob/main/img/pin.jpg?raw=true)
 
 - 下載程式碼並增加使用權限
