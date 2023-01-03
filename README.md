@@ -64,7 +64,7 @@ $ sudo apt install vim
 ```
 $ wget https://github.com/kipr/opencv/raw/master/data/haarcascades/haarcascade_frontalface_default.xml
 ```
-- 下載樹梅派專用tensorflow
+- 下載樹梅派專用tensorflow2.9.1
     - `https://drive.google.com/file/d/1xP6ErBK85SMFnQamUh4ro3jRmdCV_qDU/view`
     - 從上面的連結下載whl檔
     - 之後執行`$ sudo -H pip install tensorflow-2.9.1-cp39-cp39-linux_aarch64.whl`
