@@ -132,3 +132,4 @@ $ ./run
 - [Opencv辨識人臉教學](https://steam.oxxostudio.tw/category/python/ai/ai-face-recognizer.html)
 - [deepface情緒辨識](https://steam.oxxostudio.tw/category/python/ai/ai-emotion.html)
 - [電路模擬圖tinkercad](https://www.tinkercad.com/dashboard)
+- [rasberry pi tensorflow github](https://github.com/Qengineering/TensorFlow-Raspberry-Pi_64-bit)
