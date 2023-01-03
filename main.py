@@ -1,10 +1,10 @@
 import requests
 import time
-import random
 import cv2
 import numpy as np
 from PIL import ImageFont, ImageDraw, Image
 import RPi.GPIO as GPIO
+from deepface import DeepFace
 
 #telegrambot def
 def send_to_telegram(message):
@@ -60,17 +60,28 @@ while True:
     for(x,y,w,h) in faces:
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)            # 標記人臉外框
         idnum,confidence = recognizer.predict(gray[y:y+h,x:x+w])  # 取出 id 號碼以及信心指數 confidence
+        try:
+            analyze = DeepFace.analyze(img, actions=['emotion'])
+            emotion = analyze['dominant_emotion']  # 取得情緒文字
+            
+        except:
+            emotion = ''
         if confidence < 80:
             text = name[str(idnum)]           # 如果信心指數小於某個數值，取得對應的名字
             send_to_telegram(f"{text}進來了房間")
+            send_to_telegram(f"他看起來很{emotion}")
+            
         else:
             text = '???'                      # 不然名字就是 ???
             buzz(1000,5)                      # 響警報
             send_to_telegram("warning!!有不認識的人")
-            time.sleep(0.5)
-
+            send_to_telegram(f"他看起來很{emotion}")
+            
+        time.sleep(0.5)
         # 在人臉外框旁加上名字
         cv2.putText(img, text, (x,y-5),cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2, cv2.LINE_AA)
+        cv2.putText(img, emotion, (0,20),cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2, cv2.LINE_AA)
+        
     cv2.imshow('LSA-final project', img)
     if cv2.waitKey(5) == ord('q'):
         break    # 按下 q 鍵停止
