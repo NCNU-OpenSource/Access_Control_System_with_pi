@@ -121,11 +121,10 @@ $ ./run
     - python debugging
     - demo錄影
 - 陳奕宏
-    - 英文小達人
     - demo錄影
 - 陳俊維
     - telegram bot programming
-    - 醬油本人
+    
 
 ## References
 
