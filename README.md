@@ -38,9 +38,6 @@
 
 <!-- What kind of knowledge did you use on this project? -->
 
-- 學會使用樹梅派GPIO
-- 學會使用telegram bot傳訊息
-- 學會使用opencv做人臉辨識
 - linux系統基本指令
 ## Installation 預先下載
 
